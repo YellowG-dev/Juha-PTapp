@@ -25,7 +25,7 @@
 
 export const PROGRAM_ID = "juha";
 export const CLIENT_NAME = "Juha";
-export const APP_VERSION = "4.1.0";
+export const APP_VERSION = "4.1.1";
 
 /* --------------------------------- Slots --------------------------------- */
 // Order matters: it is the order sections appear on Today and rows appear in
@@ -38,15 +38,15 @@ const UPPER = {
   label: "Upper — Push + Pull",
   cat: "strength",
   exercises: [
-      { id: "up-1", pattern: "incline-press", name: "Incline DB press", presc: "4×6–10 · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=hChjZQhX1Ls" },
-      { id: "up-2", pattern: "vertical-pull", name: "Pull-up / lat pulldown", presc: "4×6–10 · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=vw5Xmu5CIew" },
-      { id: "up-3", pattern: "overhead-press", name: "Seated DB overhead press", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=fuQpuu--bMI" },
-      { id: "up-4", pattern: "horizontal-row", name: "Chest-supported / cable row", presc: "3×10–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=vmX58YYK3-8" },
-      { id: "up-5", pattern: "lateral-raise", name: "Lateral raise", presc: "3×12–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=nnH63icHYXY" },
-      { id: "up-8", pattern: "trunk-flexion", name: "Weighted crunch or hanging knee raise", presc: "3×12–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
+      { id: "up-1", pattern: "incline-press", name: "Incline dumbbell press", presc: "4×6–10 · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=hChjZQhX1Ls" },
+      { id: "up-2", pattern: "vertical-pull", name: "Pull-up", presc: "4×6–10 · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=vw5Xmu5CIew" },
+      { id: "up-3", pattern: "overhead-press", name: "Seated dumbbell overhead press", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=fuQpuu--bMI" },
+      { id: "up-4", pattern: "horizontal-row", name: "Chest-supported row", presc: "3×10–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=vmX58YYK3-8" },
+      { id: "up-5", pattern: "lateral-raise", name: "Dumbbell lateral raise", presc: "3×12–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=nnH63icHYXY" },
+      { id: "up-8", pattern: "trunk-flexion", name: "Weighted crunch", presc: "3×12–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
       { id: "up-9", pattern: "lateral-core", name: "Weighted side plank hip lift", presc: "3×12–15/side · RPE 7", sets: 3, video: "https://www.youtube.com/watch?v=V4A0wIh5HNk" },
       { id: "up-6", pattern: "triceps", name: "Overhead triceps extension", presc: "3×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=O7e8j8K3cJo" },
-      { id: "up-7", pattern: "biceps", name: "Biceps curl", presc: "3×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=6DeLZ6cbgWQ" },
+      { id: "up-7", pattern: "biceps", name: "Dumbbell curl", presc: "3×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=6DeLZ6cbgWQ" },
   ],
 };
 
@@ -56,12 +56,12 @@ const LOWER = {
   exercises: [
       { id: "lo-1", pattern: "unilateral-squat", name: "Bulgarian split squat", presc: "4×8–12/leg · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=hiLF_pF3EJM" },
       { id: "lo-2", pattern: "hip-thrust", name: "Barbell hip thrust", presc: "4×8–12 · RPE 7–9", sets: 4, video: "https://www.youtube.com/watch?v=S_uZP4UH6J0" },
-      { id: "lo-3", pattern: "single-leg-hinge", name: "Single-leg RDL (DB)", presc: "3×8–12/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=18CzQrq-Z7I" },
-      { id: "lo-10", pattern: "quad-isolation", name: "Machine single-leg extension", presc: "3×10–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=tTbJBUKnWU8" },
+      { id: "lo-3", pattern: "single-leg-hinge", name: "Single-leg RDL (dumbbell)", presc: "3×8–12/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=18CzQrq-Z7I" },
+      { id: "lo-10", pattern: "quad-isolation", name: "Single-leg extension", presc: "3×10–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=tTbJBUKnWU8" },
       { id: "lo-5", pattern: "hamstring-curl", name: "Machine leg curl", presc: "3×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=hqI59xXChFk" },
-      { id: "lo-8", pattern: "trunk-flexion", name: "Weighted crunch or hanging knee raise", presc: "3×12–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
+      { id: "lo-8", pattern: "trunk-flexion", name: "Weighted crunch", presc: "3×12–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
       { id: "lo-9", pattern: "lateral-core", name: "Weighted side plank hip lift", presc: "3×12–15/side · RPE 7", sets: 3, video: "https://www.youtube.com/watch?v=V4A0wIh5HNk" },
-      { id: "lo-11", pattern: "calf", name: "Calf raise — standing or seated, alternate", presc: "3–4×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
+      { id: "lo-11", pattern: "calf", name: "Standing calf raise", presc: "3–4×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
   ],
 };
 
@@ -69,14 +69,14 @@ const FULL = {
   label: "Full Body — Lagging parts",
   cat: "strength",
   exercises: [
-      { id: "fb-1", pattern: "incline-press", name: "Incline DB press", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=hChjZQhX1Ls" },
+      { id: "fb-1", pattern: "incline-press", name: "Incline dumbbell press", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=hChjZQhX1Ls" },
       { id: "fb-2", pattern: "triceps", name: "Dip / DB pullover", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=8UugSoVJLag" },
       { id: "fb-3", pattern: "rear-delt", name: "Face pull", presc: "3×15–20 · RPE 7", sets: 3, video: "https://www.youtube.com/watch?v=0Po47vvj9g4" },
-      { id: "fb-4", pattern: "hip-thrust", name: "Hip thrust / single-leg press", presc: "3×10–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=S_uZP4UH6J0" },
-      { id: "fb-5", pattern: "trunk-flexion", name: "Weighted crunch or hanging knee raise", presc: "5×12–15 · RPE 8", sets: 5, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
-      { id: "fb-6", pattern: "biceps", name: "Biceps curl", presc: "2×12–15 · RPE 8", sets: 2, video: "https://www.youtube.com/watch?v=6DeLZ6cbgWQ" },
+      { id: "fb-4", pattern: "hip-thrust", name: "Barbell hip thrust", presc: "3×10–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=S_uZP4UH6J0" },
+      { id: "fb-5", pattern: "trunk-flexion", name: "Weighted crunch", presc: "5×12–15 · RPE 8", sets: 5, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
+      { id: "fb-6", pattern: "biceps", name: "Dumbbell curl", presc: "2×12–15 · RPE 8", sets: 2, video: "https://www.youtube.com/watch?v=6DeLZ6cbgWQ" },
       { id: "fb-7", pattern: "triceps", name: "Overhead triceps extension", presc: "2×12–15 · RPE 8", sets: 2, video: "https://www.youtube.com/watch?v=O7e8j8K3cJo" },
-      { id: "fb-8", pattern: "calf", name: "Calf raise — standing or seated, alternate", presc: "3–4×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
+      { id: "fb-8", pattern: "calf", name: "Standing calf raise", presc: "3–4×10–15 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
   ],
 };
 
@@ -87,14 +87,14 @@ const BODYWEIGHT = {
   subtitle: "Away from the gym — same shape, no equipment",
   exercises: [
       { id: "bw-1", pattern: "bodyweight-press", name: "Push-up", presc: "3×12–20 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=WDIpL0pjun0" },
-      { id: "bw-2", pattern: "overhead-press", name: "Pike push-up", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=XckEEwa1BPI" },
+      { id: "bw-2", pattern: "bodyweight-press", name: "Pike push-up", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=XckEEwa1BPI" },
       { id: "bw-3", pattern: "horizontal-row", name: "Band row", presc: "3×12–15 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=ysAjxPSFC7M" },
       { id: "bw-4", pattern: "rear-delt", name: "Band pull-apart", presc: "3×15–20 · RPE 7", sets: 3, video: "https://www.youtube.com/watch?v=WqdNDTTe-9g" },
-      { id: "bw-5", pattern: "unilateral-squat", name: "Bodyweight Bulgarian split squat", presc: "3×12–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=hiLF_pF3EJM" },
+      { id: "bw-5", pattern: "unilateral-squat", name: "Bulgarian split squat", presc: "3×12–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=hiLF_pF3EJM" },
       { id: "bw-6", pattern: "single-leg-hinge", name: "Single-leg RDL (bodyweight)", presc: "3×10–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=18CzQrq-Z7I" },
       { id: "bw-7", pattern: "hip-thrust", name: "Single-leg hip thrust", presc: "3×12–15/leg · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=qCObDXTe4KY" },
-      { id: "bw-8", pattern: "calf", name: "Standing calf raise (bodyweight)", presc: "3×15–20 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
-      { id: "bw-9", pattern: "trunk-flexion", name: "Crunch or hanging knee raise", presc: "3×15–20 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=p9hhX_Sx5v0" },
+      { id: "bw-8", pattern: "calf", name: "Standing calf raise", presc: "3×15–20 · RPE 8", sets: 3, video: "https://www.youtube.com/watch?v=SVtg-1loH4c" },
+      { id: "bw-9", pattern: "trunk-flexion", name: "Lying leg raise", presc: "3×15–20 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=p9hhX_Sx5v0" },
       { id: "bw-10", pattern: "lateral-core", name: "Side plank hip lift", presc: "3×12–15/side · RPE 7", sets: 3, video: "https://www.youtube.com/watch?v=V4A0wIh5HNk" },
   ],
 };
