@@ -25,7 +25,7 @@
 
 export const PROGRAM_ID = "juha";
 export const CLIENT_NAME = "Juha";
-export const APP_VERSION = "4.1.1";
+export const APP_VERSION = "5.0.0-beta";
 
 /* --------------------------------- Slots --------------------------------- */
 // Order matters: it is the order sections appear on Today and rows appear in

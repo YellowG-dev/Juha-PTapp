@@ -28,6 +28,12 @@ export const RAMP_WEEKS = 0; // already training; no easing-in period
 
 export const BACKUP_URL = "";
 
+// Supabase connection. Safe to commit — the publishable key is designed to be
+// public and only says "a browser is calling". Row-level security is what
+// protects the data. NEVER put the sb_secret_ key here.
+export const SUPABASE_URL = "https://qpkdqyazdzhoohowkouy.supabase.co";
+export const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_VCvYuYUAC9Dnf3kiLNB93g_tP_5c473";
+
 const ACCENT = "#E3A23C";   // amber
 const ACCENT_2 = "#4CB6C4"; // teal
 
