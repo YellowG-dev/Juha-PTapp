@@ -280,6 +280,9 @@
   .hidden\! {
     display: none !important;
   }
+  .table {
+    display: table;
+  }
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
