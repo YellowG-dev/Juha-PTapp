@@ -90,6 +90,10 @@ export const PATTERNS = {
     {
       "name": "Dip / DB pullover",
       "equip": "bodyweight"
+    },
+    {
+      "name": "Close-grip dumbbell press",
+      "equip": "dumbbell"
     }
   ],
   "biceps": [
@@ -104,6 +108,10 @@ export const PATTERNS = {
     {
       "name": "Cable curl",
       "equip": "cable"
+    },
+    {
+      "name": "Incline dumbbell curl",
+      "equip": "dumbbell"
     }
   ],
   "vertical-pull": [
@@ -334,7 +342,7 @@ export const PATTERNS = {
   ]
 };
 
-// Options offered for an exercise, given its pattern and the day's context.
+// Swap options for one prescribed exercise. The list:
 // - drops the variant matching what is already prescribed (no "swap" to itself)
 // - drops variants already prescribed elsewhere the same day
 // - on a no-gym day, keeps only bodyweight/band

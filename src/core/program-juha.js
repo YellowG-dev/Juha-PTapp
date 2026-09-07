@@ -80,6 +80,72 @@ const FULL = {
   ],
 };
 
+/* ------------------- Block: 7 Sep – 18 Oct 2026 (v7) --------------------- */
+// Three balanced full-body sessions, A → B → C, pinned to Tue / Thu / Sat.
+// Baseline is two of them per week; the third is upside. Supersets are marked
+// in `presc` rather than in `name`, because the pattern library matches swap
+// options on the exercise name and a prefix there would silently kill them.
+//
+// Ids are reused wherever the movement is genuinely the same as before, so
+// load history and the "Last: …" benchmarks carry forward. New movements get
+// new, movement-specific ids that will never be recycled.
+
+const SESSION_A = {
+  label: "Session A — Chest / Vertical Pull",
+  cat: "strength",
+  subtitle: "≈70 min · the long one · abs 5 sets",
+  exercises: [
+      { id: "db-bench", pattern: "horizontal-press", name: "Dumbbell bench press", presc: "4×6–10 · RPE 7–9", sets: 4 },
+      { id: "up-2", pattern: "vertical-pull", name: "Pull-up", presc: "4×6–10 · RPE 7–9 · bodyweight; add reps before load", sets: 4, video: "https://www.youtube.com/watch?v=vw5Xmu5CIew" },
+      { id: "lo-1", pattern: "unilateral-squat", name: "Bulgarian split squat", presc: "4×8–12/leg · RPE 7–9 · log the weaker leg", sets: 4, video: "https://www.youtube.com/watch?v=hiLF_pF3EJM" },
+      { id: "lo-5", pattern: "hamstring-curl", name: "Machine leg curl", presc: "3×10–15 · RPE 8 · SS with leg extension", sets: 3, video: "https://www.youtube.com/watch?v=hqI59xXChFk" },
+      { id: "leg-ext", pattern: "quad-isolation", name: "Machine leg extension", presc: "3×10–15 · RPE 8 · 90→45° only, no lock-out · SS with leg curl", sets: 3 },
+      { id: "up-7", pattern: "biceps", name: "Dumbbell curl", presc: "3×10–15 · RPE 8 · SS with triceps pushdown", sets: 3, video: "https://www.youtube.com/watch?v=6DeLZ6cbgWQ" },
+      { id: "tri-pushdown", pattern: "triceps", name: "Cable triceps pushdown", presc: "3×10–15 · RPE 8 · SS with dumbbell curl", sets: 3 },
+      { id: "up-5", pattern: "lateral-raise", name: "Dumbbell lateral raise", presc: "3×12–15 · RPE 8 · first cut if short on time", sets: 3, video: "https://www.youtube.com/watch?v=nnH63icHYXY" },
+      { id: "calf-seated", pattern: "calf", name: "Seated calf raise", presc: "3×12–20 · RPE 8", sets: 3 },
+      { id: "hang-knee", pattern: "trunk-flexion", name: "Hanging knee raise", presc: "5×10–15 · RPE 8", sets: 5 },
+  ],
+};
+
+const SESSION_B = {
+  label: "Session B — Press / Row / Hinge",
+  cat: "strength",
+  subtitle: "≈74 min · abs 6 sets",
+  exercises: [
+      { id: "up-1", pattern: "incline-press", name: "Incline dumbbell press", presc: "3×8–12 · RPE 7–8", sets: 3, video: "https://www.youtube.com/watch?v=hChjZQhX1Ls" },
+      { id: "row-1arm-db", pattern: "horizontal-row", name: "One-arm dumbbell row", presc: "4×8–12/arm · RPE 7–9 · primary row", sets: 4 },
+      { id: "lo-2", pattern: "hip-thrust", name: "Barbell hip thrust", presc: "3×8–12 · RPE 7–9", sets: 3, video: "https://www.youtube.com/watch?v=S_uZP4UH6J0" },
+      { id: "leg-press-1leg", pattern: "hip-thrust", name: "Single-leg press", presc: "3×10–12/leg · RPE 7–8 · log the weaker leg · SS with calf raise", sets: 3 },
+      { id: "calf-seated", pattern: "calf", name: "Seated calf raise", presc: "3×12–20 · RPE 8 · SS with single-leg press", sets: 3 },
+      { id: "lo-5", pattern: "hamstring-curl", name: "Machine leg curl", presc: "3×10–15 · RPE 8 · SS with leg extension", sets: 3, video: "https://www.youtube.com/watch?v=hqI59xXChFk" },
+      { id: "leg-ext", pattern: "quad-isolation", name: "Machine leg extension", presc: "3×10–15 · RPE 8 · 90→45° only, no lock-out · SS with leg curl", sets: 3 },
+      { id: "curl-ezbar", pattern: "biceps", name: "Ez-bar curl", presc: "3×10–15 · RPE 8 · SS with overhead triceps extension", sets: 3 },
+      { id: "up-6", pattern: "triceps", name: "Overhead triceps extension", presc: "3×10–15 · RPE 8 · SS with Ez-bar curl", sets: 3, video: "https://www.youtube.com/watch?v=O7e8j8K3cJo" },
+      { id: "up-8", pattern: "trunk-flexion", name: "Weighted crunch", presc: "3×10–15 · RPE 8 · SS with ab wheel", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
+      { id: "ab-wheel", pattern: "anti-extension", name: "Ab wheel rollout", presc: "3×10–15 · RPE 8 · SS with weighted crunch", sets: 3 },
+  ],
+};
+
+const SESSION_C = {
+  label: "Session C — Shoulders / Posterior Chain",
+  cat: "strength",
+  subtitle: "≈73 min · abs 6 sets · no leg curl or extension",
+  exercises: [
+      { id: "db-bench", pattern: "horizontal-press", name: "Dumbbell bench press", presc: "4×6–10 · RPE 7–9", sets: 4 },
+      { id: "row-cable", pattern: "horizontal-row", name: "Seated cable row", presc: "4×8–12 · RPE 7–8 · secondary row", sets: 4 },
+      { id: "ohp-barbell", pattern: "overhead-press", name: "Barbell overhead press", presc: "3×8–12 · RPE 7–8 · standing", sets: 3 },
+      { id: "lo-3", pattern: "single-leg-hinge", name: "Single-leg RDL (dumbbell)", presc: "3×8–12/leg · RPE 7–8 · log the weaker leg · SS with calf raise", sets: 3, video: "https://www.youtube.com/watch?v=18CzQrq-Z7I" },
+      { id: "calf-seated", pattern: "calf", name: "Seated calf raise", presc: "3×12–20 · RPE 8 · SS with single-leg RDL", sets: 3 },
+      { id: "curl-incline-db", pattern: "biceps", name: "Incline dumbbell curl", presc: "3×10–15 · RPE 8 · SS with close-grip dumbbell press", sets: 3 },
+      { id: "press-closegrip-db", pattern: "triceps", name: "Close-grip dumbbell press", presc: "3×10–15 · RPE 8 · SS with incline dumbbell curl", sets: 3 },
+      { id: "up-5", pattern: "lateral-raise", name: "Dumbbell lateral raise", presc: "3×12–15 · RPE 7–8 · SS with face pull", sets: 3, video: "https://www.youtube.com/watch?v=nnH63icHYXY" },
+      { id: "fb-3", pattern: "rear-delt", name: "Face pull", presc: "3×15–20 · RPE 7–8 · SS with lateral raise", sets: 3, video: "https://www.youtube.com/watch?v=0Po47vvj9g4" },
+      { id: "up-8", pattern: "trunk-flexion", name: "Weighted crunch", presc: "3×10–15 · RPE 8 · SS with side plank lift", sets: 3, video: "https://www.youtube.com/watch?v=Pxkw6dUt_Ok" },
+      { id: "up-9", pattern: "lateral-core", name: "Weighted side plank hip lift", presc: "3×10–15/side · RPE 8 · SS with weighted crunch", sets: 3, video: "https://www.youtube.com/watch?v=V4A0wIh5HNk" },
+  ],
+};
+
 const BODYWEIGHT = {
   noGym: true,
   label: "No-Gym — Bodyweight + Band",
@@ -165,7 +231,9 @@ const SOCIAL = {
 /* -------------------------------- Wiring --------------------------------- */
 
 export const BLOCKS = {
-  strength: { upper: UPPER, lower: LOWER, full: FULL, bodyweight: BODYWEIGHT },
+  // upper / lower / full are retired from the picker but kept here so days
+  // logged before 7 Sep 2026 still resolve their sections in History.
+  strength: { a: SESSION_A, b: SESSION_B, c: SESSION_C, upper: UPPER, lower: LOWER, full: FULL, bodyweight: BODYWEIGHT },
   cardio: { hard: HARD, zone2: ZONE2 },
   tennis: { lesson: LESSON, social: SOCIAL },
 };
@@ -173,9 +241,9 @@ export const BLOCKS = {
 export const SLOT_OPTIONS = {
   strength: [
     { value: null, label: "None" },
-    { value: "upper", label: "Upper" },
-    { value: "lower", label: "Lower" },
-    { value: "full", label: "Full Body" },
+    { value: "a", label: "A" },
+    { value: "b", label: "B" },
+    { value: "c", label: "C" },
     { value: "bodyweight", label: "No-Gym" },
   ],
   cardio: [
@@ -206,11 +274,11 @@ export const SLOT_META = {
 
 const WEEK = {
   1: { strength: null, cardio: null, tennis: "lesson" },
-  2: { strength: "upper", cardio: null, tennis: null },
+  2: { strength: "a", cardio: null, tennis: null },
   3: { strength: null, cardio: "hard", tennis: null },
-  4: { strength: "lower", cardio: null, tennis: null },
+  4: { strength: "b", cardio: null, tennis: null },
   5: { strength: null, cardio: null, tennis: null, note: "Rest day" },
-  6: { strength: "full", cardio: "zone2", tennis: null },
+  6: { strength: "c", cardio: "zone2", tennis: null },
   0: { strength: null, cardio: "hard", tennis: null },
 };
 
@@ -218,23 +286,32 @@ export const SCHEDULE = { A: WEEK, B: WEEK };
 
 /* ------------------------------- Mobility -------------------------------- */
 
+// ORDER IS THE DESIGN. Logged completion 1 Aug – 6 Sep fell steadily by list
+// position (24 completions at position 1, 15 at position 7), so the items that
+// matter most for the knee and low back now sit at 1–5. Stopping at item 5
+// still completes the ones that count. Ids are unchanged, so reordering costs
+// no history.
 export const MOBILITY = [
-  { id: "mob-1", name: "Cat–Cow → thoracic rotation", presc: "60s · Bodyweight", video: "https://www.youtube.com/watch?v=YPTKZy_kKt8" },
-  { id: "mob-2", name: "Thoracic extension over roller", presc: "60s · Foam roller", video: "https://www.youtube.com/watch?v=9Y11Kc0E0og" },
-  { id: "mob-3", name: "Lat sweep", presc: "60s · Foam roller", video: "https://www.youtube.com/watch?v=NOiM2TSjoMM" },
-  { id: "mob-4", name: "Pec minor / anterior shoulder release", presc: "60s (30/side) · Ball", video: "https://www.youtube.com/watch?v=Vj83BnZpTwk" },
-  { id: "mob-5", name: "Shoulder CARs", presc: "45s · Bodyweight", video: "https://www.youtube.com/watch?v=Ag1yVYbPXeg" },
-  { id: "mob-6", name: "Half-kneeling hip flexor + reach", presc: "90s (45/side) · Mat/pad", video: "https://www.youtube.com/watch?v=KyoK4Rf6_bE" },
-  { id: "mob-7", name: "Quad roll", presc: "60s (30/side) · Foam roller", video: "https://www.youtube.com/watch?v=cv57kA6rktc" },
-  { id: "mob-8", name: "Glute / piriformis release", presc: "90s (45/side) · Ball", video: "https://www.youtube.com/watch?v=7x6EFeWiyL4" },
-  { id: "mob-9", name: "Ankle dorsiflexion rock + calf roll", presc: "75s · Wall + roller", video: "https://www.youtube.com/watch?v=Y1IZXkdPPdw" },
+  { id: "mob-1", name: "Cat–Cow → thoracic rotation", presc: "8–10 reps · Bodyweight", video: "https://www.youtube.com/watch?v=YPTKZy_kKt8" },
+  { id: "mob-6", name: "Half-kneeling hip flexor + reach", presc: "30–45s/side · Mat/pad", video: "https://www.youtube.com/watch?v=KyoK4Rf6_bE" },
+  { id: "mob-9", name: "Ankle dorsiflexion rock + calf roll", presc: "10 reps/side · Wall + roller", video: "https://www.youtube.com/watch?v=Y1IZXkdPPdw" },
+  { id: "mob-10", name: "Banded lateral walk", presc: "10–15 steps each way · Band", video: "https://www.youtube.com/watch?v=A12uKYg-Kuo" },
+  { id: "mob-11", name: "Side-lying hip abduction", presc: "15/side · Bodyweight", video: "https://www.youtube.com/watch?v=BSGho5DuaR0" },
+  { id: "mob-5", name: "Shoulder CARs", presc: "5/side · Bodyweight", video: "https://www.youtube.com/watch?v=Ag1yVYbPXeg" },
+  { id: "mob-2", name: "Thoracic extension over roller", presc: "8–10 reps · Foam roller", video: "https://www.youtube.com/watch?v=9Y11Kc0E0og" },
+  { id: "mob-3", name: "Lat sweep", presc: "30s/side · Foam roller", video: "https://www.youtube.com/watch?v=NOiM2TSjoMM" },
+  { id: "mob-4", name: "Pec minor / anterior shoulder release", presc: "30–45s/side · Ball", video: "https://www.youtube.com/watch?v=Vj83BnZpTwk" },
+  { id: "mob-8", name: "Glute / piriformis release", presc: "30–45s/side · Ball", video: "https://www.youtube.com/watch?v=7x6EFeWiyL4" },
+  { id: "mob-7", name: "Quad roll", presc: "30–45s/side · Foam roller", video: "https://www.youtube.com/watch?v=cv57kA6rktc" },
 ];
 
 /* ------------------------------- Nutrition ------------------------------- */
 
 export const NUTRITION_TARGETS = {
-  training: { cal: 3000, protein: 180, fat: 90, carbs: 368 },
-  rest: { cal: 2700, protein: 180, fat: 90, carbs: 293 },
+  // Measured TDEE ≈ 2500 kcal (2530 average intake → ~0.5 kg net gain over
+  // 7 weeks). Supersedes the earlier 3200 figure. Protein 2.2 g/kg.
+  training: { cal: 2700, protein: 190, fat: 90, carbs: 283 },
+  rest: { cal: 2350, protein: 190, fat: 80, carbs: 218 },
 };
 
 const macroTasks = (isTrainingDay) => {
@@ -311,11 +388,11 @@ export const DAILY = [
 ];
 
 /* -------------------------------- Testing -------------------------------- */
-// Anchored to the Sunday on/after the documented 12 Jun 2026 InBody baseline.
+// Re-anchored to the 6 Sep 2026 InBody + VO2max baseline.
 // InBody every 8 weeks, VO2max every 4 — they coincide every other VO2max
 // cycle. Move either one with "Mark due" / "Not due" in the Calendar.
 
-const TEST_ANCHOR = new Date(2026, 5, 14);
+const TEST_ANCHOR = new Date(2026, 8, 6);
 
 export const TESTING = {
   key: "testing",
@@ -364,7 +441,7 @@ export const PROGRAM = {
   // not switch a deload on — the weekly D toggle does that, exactly as in
   // v3.1. Deloading answers how the last three weeks actually felt, which the
   // calendar has no way of knowing.
-  deloadWave: { anchor: new Date(2026, 6, 27), cycleWeeks: 4, deloadWeek: 3 },
+  deloadWave: { anchor: new Date(2026, 8, 7), cycleWeeks: 4, deloadWeek: 3 },
   deloadAnchor: null,
   // UI flags. showDeloadToggle draws the weekly D column in the Calendar;
   // usesHeartRate reveals the Max HR field in Settings.
