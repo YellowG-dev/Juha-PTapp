@@ -280,6 +280,9 @@
   .hidden\! {
     display: none !important;
   }
+  .inline {
+    display: inline;
+  }
   .table {
     display: table;
   }
