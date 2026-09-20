@@ -352,8 +352,15 @@ export const DAILY = [
   {
     key: "nutrition",
     cat: "nutrition",
-    title: (ctx) => "Nutrition — " + (ctx.isTrainingDay ? "Training day" : "Rest day"),
-    tasks: (ctx) => macroTasks(ctx.isTrainingDay),
+    // Declared per day type rather than computed at render time. macroTasks()
+    // still runs — but at module load, so what ends up in the exported object
+    // is plain data. Same idiom as MOBILITY.map() above. A program has to be
+    // serialisable to live in Supabase (Phase 5) and to be validated on paste
+    // (Phase 7), and a closure survives neither.
+    byDayType: {
+      training: { title: "Nutrition — Training day", tasks: macroTasks(true) },
+      rest: { title: "Nutrition — Rest day", tasks: macroTasks(false) },
+    },
   },
   {
     key: "check",
@@ -392,7 +399,8 @@ export const DAILY = [
 // InBody every 8 weeks, VO2max every 4 — they coincide every other VO2max
 // cycle. Move either one with "Mark due" / "Not due" in the Calendar.
 
-const TEST_ANCHOR = new Date(2026, 8, 6);
+// ISO date string, not a Date object — see the anchor note in engine.js.
+const TEST_ANCHOR = "2026-09-06";
 
 export const TESTING = {
   key: "testing",
@@ -441,7 +449,7 @@ export const PROGRAM = {
   // not switch a deload on — the weekly D toggle does that, exactly as in
   // v3.1. Deloading answers how the last three weeks actually felt, which the
   // calendar has no way of knowing.
-  deloadWave: { anchor: new Date(2026, 8, 7), cycleWeeks: 4, deloadWeek: 3 },
+  deloadWave: { anchor: "2026-09-07", cycleWeeks: 4, deloadWeek: 3 },
   deloadAnchor: null,
   // UI flags. showDeloadToggle draws the weekly D column in the Calendar;
   // usesHeartRate reveals the Max HR field in Settings.
