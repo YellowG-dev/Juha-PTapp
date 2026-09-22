@@ -30,7 +30,7 @@ export const APP_VERSION = "5.0.0-beta1";
 /* --------------------------------- Slots --------------------------------- */
 // Order matters: it is the order sections appear on Today and rows appear in
 // the Calendar day detail.
-export const SLOTS = ["strength", "cardio", "tennis"];
+export const SLOTS = ["strength", "cardio", "tennis", "yoga"];
 
 /* ------------------------------- Strength -------------------------------- */
 
@@ -228,6 +228,21 @@ const SOCIAL = {
   ],
 };
 
+/* --------------------------------- Yoga ---------------------------------- */
+// Not scheduled — pick it for any day from the Calendar (added 22 Sep 2026).
+
+const RUNNERS_YOGA = {
+  label: "Yoga — Runner's yoga",
+  cat: "yoga",
+  subtitle: "≈30 min follow-along · hips, hamstrings, ankles",
+  exercises: [
+    { id: "yoga-runners", name: "Runner's yoga", presc: "30 min · follow along", sets: null,
+      video: "https://www.youtube.com/watch?v=0hTllAb4XGg",
+      altName: "Yin yoga for runners (30 min)",
+      altVideo: "https://www.youtube.com/watch?v=G1VILbdkXPo" },
+  ],
+};
+
 /* -------------------------------- Wiring --------------------------------- */
 
 export const BLOCKS = {
@@ -236,6 +251,7 @@ export const BLOCKS = {
   strength: { a: SESSION_A, b: SESSION_B, c: SESSION_C, upper: UPPER, lower: LOWER, full: FULL, bodyweight: BODYWEIGHT },
   cardio: { hard: HARD, zone2: ZONE2 },
   tennis: { lesson: LESSON, social: SOCIAL },
+  yoga: { runners: RUNNERS_YOGA },
 };
 
 export const SLOT_OPTIONS = {
@@ -256,12 +272,17 @@ export const SLOT_OPTIONS = {
     { value: "lesson", label: "Coached lesson" },
     { value: "social", label: "Social play" },
   ],
+  yoga: [
+    { value: null, label: "None" },
+    { value: "runners", label: "Runner's yoga" },
+  ],
 };
 
 export const SLOT_META = {
   strength: { label: "Strength", color: "#E3A23C" },
   cardio: { label: "Cardio", color: "#4CB6C4" },
   tennis: { label: "Tennis", color: "#6FCF97" },
+  yoga: { label: "Yoga", color: "#A99BC9" },
 };
 
 /* ------------------------------- Schedule -------------------------------- */

@@ -7,7 +7,7 @@
  */
 import { THEMES, buildTheme } from "./core/themes.js";
 import React from "react";
-import { Dumbbell, Activity, Wind, Utensils, Scale, Footprints, Gauge } from "lucide-react";
+import { Dumbbell, Activity, Wind, Utensils, Scale, Footprints, Gauge, Flower2 } from "lucide-react";
 import PROGRAM_DATA, {
   MOBILITY, BLOCKS, SLOT_OPTIONS, SLOT_META, APP_VERSION, NUTRITION_TARGETS, SCHEDULE,
 } from "./core/program-juha.js";
@@ -52,6 +52,7 @@ function catsFor({ ACCENT, ACCENT_2 }) {
     strength: { label: "Strength", color: ACCENT, Icon: Dumbbell },
     cardio: { label: "Cardio", color: ACCENT_2, Icon: Activity },
     tennis: { label: "Tennis", color: "#6FCF97", Icon: Activity },
+    yoga: { label: "Yoga", color: "#A99BC9", Icon: Flower2 },
     mobility: { label: "Mobility", color: "#7FB88F", Icon: Wind },
     nutrition: { label: "Nutrition", color: "#C97388", Icon: Utensils },
     check: { label: "Check", color: "#8891A3", Icon: Scale },
