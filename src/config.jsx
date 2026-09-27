@@ -80,10 +80,14 @@ const DOW = [
   [1, "Mon"], [2, "Tue"], [3, "Wed"], [4, "Thu"], [5, "Fri"], [6, "Sat"], [0, "Sun"],
 ];
 
+// Every read below is guarded. This view is the fallback for a programme with
+// no programView, and a delivered programme can rename or drop a block, so an
+// unguarded read here is a white screen on the Program tab rather than a
+// missing line. core/program-view.jsx is the guarded path for delivered data.
 function labelFor(slot, value) {
   const opt = (SLOT_OPTIONS[slot] || []).find((o) => o.value === value);
   const name = opt ? opt.label : value;
-  return `${SLOT_META[slot].label} — ${name}`;
+  return `${(SLOT_META[slot] || {}).label || slot} — ${name}`;
 }
 
 function dayLine(day) {
@@ -97,7 +101,7 @@ function dayLine(day) {
 
 export function ProgramView({ Section, ExerciseList, theme }) {
   const { ACCENT: A, ACCENT_2: B, TEXT_MUTED, TEXT_SECONDARY, FONT_MONO, CATS } = theme;
-  const week = SCHEDULE.A;
+  const week = (SCHEDULE && SCHEDULE.A) || {};
 
   return (
     <div className="px-4 max-w-md mx-auto space-y-3">
@@ -139,11 +143,14 @@ export function ProgramView({ Section, ExerciseList, theme }) {
         </p>
       </Section>
 
-      {["a", "b", "c"].map((k) => (
-        <Section key={k} title={BLOCKS.strength[k].label} subtitle={BLOCKS.strength[k].subtitle} color={A}>
-          <ExerciseList exercises={BLOCKS.strength[k].exercises} color={A} />
-        </Section>
-      ))}
+      {["a", "b", "c"].map((k) => {
+        const blk = BLOCKS.strength?.[k];
+        return blk && (
+          <Section key={k} title={blk.label} subtitle={blk.subtitle} color={A}>
+            <ExerciseList exercises={blk.exercises || []} color={A} />
+          </Section>
+        );
+      })}
 
       <Section title="Exercise rules" subtitle="Why the program looks the way it does" color={A}>
         <p className="text-xs">
@@ -174,7 +181,7 @@ export function ProgramView({ Section, ExerciseList, theme }) {
       </Section>
 
       <Section title="No-Gym — Bodyweight + Band" subtitle="Swap any strength day to this when travelling" color={CATS.activity.color}>
-        <ExerciseList exercises={BLOCKS.strength.bodyweight.exercises} color={CATS.activity.color} />
+        <ExerciseList exercises={BLOCKS.strength?.bodyweight?.exercises || []} color={CATS.activity.color} />
         <p style={{ color: TEXT_MUTED }} className="text-xs">
           Progression works differently here. Climb the rep range first; once every set sits comfortably at the top,
           add band resistance or move to a harder variation rather than adding load.
@@ -182,7 +189,7 @@ export function ProgramView({ Section, ExerciseList, theme }) {
       </Section>
 
       <Section title="Cardio — 4×4 and Zone 2" color={B}>
-        <ExerciseList exercises={BLOCKS.cardio.hard.exercises.filter((e) => !e.type)} color={B} />
+        <ExerciseList exercises={(BLOCKS.cardio?.hard?.exercises || []).filter((e) => !e.type)} color={B} />
         <p style={{ color: TEXT_MUTED }} className="text-xs">
           Zones run off a recorded peak of 179 bpm, not the age prediction — set Max HR to 179 in Settings and the
           percentages turn into real bpm. Treat it as a floor: if any session records a higher peak, raise it.
@@ -215,9 +222,9 @@ export function ProgramView({ Section, ExerciseList, theme }) {
               <p style={{ color: TEXT_SECONDARY }} className="text-[11px] uppercase tracking-wide mb-1">
                 {k === "training" ? "Training day" : "Rest day"}
               </p>
-              <p style={{ fontFamily: FONT_MONO }} className="text-xs">&lt; {NUTRITION_TARGETS[k].cal} kcal</p>
+              <p style={{ fontFamily: FONT_MONO }} className="text-xs">&lt; {(NUTRITION_TARGETS[k] || {}).cal} kcal</p>
               <p style={{ fontFamily: FONT_MONO, color: TEXT_MUTED }} className="text-[11px]">
-                P &gt;{NUTRITION_TARGETS[k].protein}g · F &lt;{NUTRITION_TARGETS[k].fat}g · C &lt;{NUTRITION_TARGETS[k].carbs}g
+                P &gt;{(NUTRITION_TARGETS[k] || {}).protein}g · F &lt;{(NUTRITION_TARGETS[k] || {}).fat}g · C &lt;{(NUTRITION_TARGETS[k] || {}).carbs}g
               </p>
             </div>
           ))}
@@ -288,7 +295,7 @@ export function ProgramView({ Section, ExerciseList, theme }) {
       </Section>
 
       <Section title="Daily mobility" subtitle="~10 min · order is the design" color={CATS.mobility.color}>
-        <ExerciseList exercises={MOBILITY} color={CATS.mobility.color} />
+        <ExerciseList exercises={MOBILITY || []} color={CATS.mobility.color} />
         <p style={{ color: TEXT_MUTED }} className="text-xs">
           Items 1–5 take about five minutes and are the daily non-negotiable core. Completion fell steadily by list
           position last block, so the items that matter most for the knee and low back now sit at the top. If you stop
