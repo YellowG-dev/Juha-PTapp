@@ -25,7 +25,7 @@
 
 export const PROGRAM_ID = "juha";
 export const CLIENT_NAME = "Juha";
-export const APP_VERSION = "5.5.1-beta1";
+export const APP_VERSION = "5.5.2-beta1";
 
 /* --------------------------------- Slots --------------------------------- */
 // Order matters: it is the order sections appear on Today and rows appear in
@@ -473,7 +473,7 @@ export const PROGRAM = {
   testing: TESTING,
   restLabel: "Rest Day",
   restSubtitle: "No training scheduled — mobility and nutrition still apply",
-  gentlerNote: "Deload week — cut sets ~40%, same intensity",
+  gentlerNote: "Deload week — one set fewer per exercise (about −25 to −33%), same weights",
   // SUGGESTION ONLY. Every 4th week from Mon 27 Jul 2026 gets a dashed
   // outline in the Calendar and a "usually your deload week" tooltip. It does
   // not switch a deload on — the weekly D toggle does that, exactly as in
