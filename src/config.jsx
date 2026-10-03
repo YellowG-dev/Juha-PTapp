@@ -6,6 +6,7 @@
  * Theme kept as the v3.1 dark amber/teal so the app looks unchanged.
  */
 import { THEMES, buildTheme } from "./core/themes.js";
+import { standardCats } from "./core/categories.jsx";
 import React from "react";
 import { Dumbbell, Activity, Wind, Utensils, Scale, Footprints, Gauge, Flower2 } from "lucide-react";
 import PROGRAM_DATA, {
@@ -48,7 +49,10 @@ export const DEFAULT_THEME_ID = "amber-slate";
 // so switching theme recolours it along with everything else. A category with a
 // fixed hex keeps that colour in every theme.
 function catsFor({ ACCENT, ACCENT_2 }) {
-  return {
+  // Every entry below wins; standardCats() only fills the categories this client
+  // never defined (a slot added later, such as Walk or Swim), so no existing
+  // colour or icon changes.
+  const own = {
     strength: { label: "Strength", color: ACCENT, Icon: Dumbbell },
     cardio: { label: "Cardio", color: ACCENT_2, Icon: Activity },
     tennis: { label: "Tennis", color: "#6FCF97", Icon: Activity },
@@ -60,6 +64,7 @@ function catsFor({ ACCENT, ACCENT_2 }) {
     activity: { label: "Activity", color: "#9C8CF0", Icon: Footprints },
     testing: { label: "Testing", color: "#5B9BD5", Icon: Gauge },
   };
+  return { ...standardCats({ ACCENT, ACCENT_2 }), ...own };
 }
 
 /** Everything app.jsx needs for one theme, carrying this client's categories. */
